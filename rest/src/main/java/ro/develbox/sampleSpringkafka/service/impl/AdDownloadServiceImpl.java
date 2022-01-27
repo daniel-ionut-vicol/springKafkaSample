@@ -4,7 +4,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Service;
 
-import ro.develbox.sampleSpringkafka.dto.AdInfo;
+import ro.develbox.sampleSpringkafka.dto.AdInfoDto;
 import ro.develbox.sampleSpringkafka.dto.AdResponseDto;
 import ro.develbox.sampleSpringkafka.service.AdDownloadService;
 
@@ -14,7 +14,7 @@ public class AdDownloadServiceImpl implements AdDownloadService{
 	Logger logger = LoggerFactory.getLogger(AdDownloadServiceImpl.class);
 	
 	@Override
-	public AdResponseDto saveAdImg(AdInfo adInfo) {
+	public AdResponseDto saveAdImg(AdInfoDto adInfo) {
 		logger.debug("Processing {}", adInfo);
 		return null;
 	}
