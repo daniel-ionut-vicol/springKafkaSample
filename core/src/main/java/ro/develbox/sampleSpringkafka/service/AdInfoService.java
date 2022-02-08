@@ -4,6 +4,6 @@ import ro.develbox.sampleSpringkafka.dto.AdInfoDto;
 
 public interface AdInfoService {
 
-	public void process(AdInfoDto adInfo);
+	public void addAdInfo(AdInfoDto adInfo) ;
 	
 }

@@ -22,7 +22,7 @@ public class AdInfoController {
 	
 	@PostMapping()
 	public void addAdInfo(@RequestBody @Valid AdInfoDto adInfo) {
-		adInfoService.process(adInfo);
+		adInfoService.addAdInfo(adInfo);
 	}
 	
 }
