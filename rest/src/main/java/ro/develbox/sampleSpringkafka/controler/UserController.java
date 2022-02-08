@@ -34,7 +34,7 @@ public class UserController {
 	}
 
 	@GetMapping("{userId}")
-	public UserDto getUser(@PathVariable String userId) {
+	public UserDto getUser(@PathVariable(required = true) String userId) {
 		return userService.getUser(userId);
 	}
 
@@ -44,13 +44,13 @@ public class UserController {
 	}
 
 	@PostMapping("{userId}")
-	public UserDto updateUser(@PathVariable String userId, @RequestBody @Valid UserDto userDto) {
+	public UserDto updateUser(@PathVariable(required = true) String userId, @RequestBody @Valid UserDto userDto) {
 		userDto.setUserId(userId);
 		return userService.updateUser(userDto);
 	}
 
 	@DeleteMapping("{userId}")
-	public void deleteUser(@PathVariable String userId) {
+	public void deleteUser(@PathVariable(required = true) String userId) {
 		userService.deleteUser(userId);
 	}
 }
