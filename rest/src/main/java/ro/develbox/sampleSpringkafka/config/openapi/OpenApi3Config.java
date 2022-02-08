@@ -37,16 +37,17 @@ public class OpenApi3Config {
 	@Bean
 	public OpenAPI openAPI() {
 		String authUrl = String.format("%s/realms/%s/protocol/openid-connect", this.authServer, this.realm);
+		
 		return new OpenAPI()
 				.components(new Components()
-						.addSecuritySchemes("spring_oauth",
-								new SecurityScheme().type(SecurityScheme.Type.OAUTH2).description("Oauth2 flow")
-										.flows(new OAuthFlows().authorizationCode(new OAuthFlow()
+						.addSecuritySchemes("security_auth",
+								new SecurityScheme().type(SecurityScheme.Type.OAUTH2).description("Oauth")
+										.flows(new OAuthFlows().implicit(new OAuthFlow()
 												.authorizationUrl(authUrl + "/auth").refreshUrl(authUrl + "/token")
 												.tokenUrl(authUrl + "/token").scopes(new Scopes()))))
 						
 						)
-				.security(Arrays.asList(new SecurityRequirement().addList("spring_oauth")))
+				.security(Arrays.asList(new SecurityRequirement().addList("security_auth")))
 				.info(new Info().title("Your API").description("Your API").version("0.1a").contact(new Contact()
 						.name("Example Inc").url("https://www.example.com/").email("developer@example.com")));
 	}
