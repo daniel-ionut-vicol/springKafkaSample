@@ -1,9 +1,9 @@
 package ro.develbox.sampleSpringkafka.controler;
 
+import javax.annotation.security.RolesAllowed;
 import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.security.access.annotation.Secured;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -12,7 +12,7 @@ import org.springframework.web.bind.annotation.RestController;
 import ro.develbox.sampleSpringkafka.dto.AdInfoDto;
 import ro.develbox.sampleSpringkafka.service.AdInfoService;
 
-@Secured(value = "ROLE_USER")
+@RolesAllowed("user")
 @RestController("/adinfo")
 @RequestMapping(value = "/adinfo")
 public class AdInfoController {

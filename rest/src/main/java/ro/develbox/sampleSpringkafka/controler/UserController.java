@@ -2,11 +2,10 @@ package ro.develbox.sampleSpringkafka.controler;
 
 import java.util.List;
 
+import javax.annotation.security.RolesAllowed;
 import javax.validation.Valid;
-import javax.websocket.server.PathParam;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.security.access.annotation.Secured;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -14,13 +13,12 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import ro.develbox.sampleSpringkafka.dto.UserDto;
 import ro.develbox.sampleSpringkafka.service.UserService;
 
-@Secured(value = "ROLE_ADMIN")
+@RolesAllowed("admin")
 @RestController("/user")
 @RequestMapping(value = "/user")
 public class UserController {
